@@ -7,12 +7,16 @@ import java.awt.event.*;
 
 public class DadPanel extends JPanel 
 {
+	private static final long serialVersionUID = -117L;
+	
 	private DadController app;
 	private SpringLayout appLayout;
 	
 	private JLabel dadLab;
 	private JTextField responseField;
 	private JButton makeJoke;
+	
+	private JPanel grids;
 	
 	public DadPanel(DadController app)
 	{
@@ -24,6 +28,8 @@ public class DadPanel extends JPanel
 		responseField = new JTextField("How do you Feel?");
 		makeJoke = new JButton("Create the joke");
 		
+		grids = new JPanel(new GridLayout(0,1));
+		
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -33,10 +39,10 @@ public class DadPanel extends JPanel
 	{
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(400, 200));
-		this.setBackground(Color.BLUE);
-		this.add(responseField);
-		this.add(dadLab);
-		this.add(makeJoke);
+		this.add(grids);
+		grids.add(responseField);
+		grids.add(dadLab);
+		grids.add(makeJoke);
 	}
 	
 	private void setupLayout()
@@ -44,9 +50,25 @@ public class DadPanel extends JPanel
 		
 	}
 	
-	private void setupListeners()
+	private void makeJoke()
 	{
+		String response = responseField.getText();
 		
+		String inbet = response.substring(response.indexOf("I'm")+1);
+		
+		String out = "Hi " + inbet + ", I'm dad!";
+		
+		dadLab.setText(out); 
 	}
 	
+	private void setupListeners()
+	{
+		makeJoke.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				makeJoke();
+			}
+		});
+	}
 }

@@ -6,6 +6,8 @@ import java.awt.*;
 
 public class DadFrame extends JFrame
 {
+	private static final long serialVersionUID = 2L;
+	
 	private DadController app;
 	private DadPanel pane;
 	
