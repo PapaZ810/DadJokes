@@ -24,9 +24,9 @@ public class DadPanel extends JPanel
 		
 		this.app = app;
 		
-		dadLab = new JLabel("I'm an Dead");
+		dadLab = new JLabel("Advice will show here.");
 		responseField = new JTextField("How do you Feel?");
-		makeJoke = new JButton("Create the joke");
+		makeJoke = new JButton("Generate advice.");
 		
 		setupPanel();
 		setupLayout();
@@ -36,7 +36,7 @@ public class DadPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
-		this.setPreferredSize(new Dimension(400, 200));
+		this.setPreferredSize(new Dimension(300, 120));
 		this.setBackground(Color.BLUE);
 		this.add(responseField);
 		this.add(dadLab);
@@ -45,16 +45,17 @@ public class DadPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		appLayout.putConstraint(SpringLayout.WEST, makeJoke, 10, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, makeJoke, -10, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.NORTH, dadLab, 48, SpringLayout.SOUTH, responseField);
-		appLayout.putConstraint(SpringLayout.SOUTH, dadLab, 95, SpringLayout.SOUTH, responseField);
+		appLayout.putConstraint(SpringLayout.NORTH, makeJoke, 6, SpringLayout.SOUTH, dadLab);
+		appLayout.putConstraint(SpringLayout.WEST, makeJoke, 0, SpringLayout.WEST, responseField);
+		appLayout.putConstraint(SpringLayout.EAST, makeJoke, -10, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, dadLab, 6, SpringLayout.SOUTH, responseField);
+		appLayout.putConstraint(SpringLayout.EAST, responseField, 0, SpringLayout.EAST, dadLab);
+		appLayout.putConstraint(SpringLayout.WEST, dadLab, 10, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, dadLab, -37, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, dadLab, -10, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, responseField, 10, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, responseField, 10, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, responseField, -10, SpringLayout.EAST, this);
 		dadLab.setBackground(Color.WHITE);
-		appLayout.putConstraint(SpringLayout.WEST, dadLab, 10, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, dadLab, 281, SpringLayout.WEST, this);
 		dadLab.setOpaque(true);
 	}
 	

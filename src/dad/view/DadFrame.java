@@ -24,8 +24,8 @@ public class DadFrame extends JFrame
 	private void setupFrame()
 	{
 		this.setContentPane(pane);
-		this.setTitle("I'm a Dad");
-		this.setPreferredSize(new Dimension(400, 200));
+		this.setTitle("Advice");
+		this.setPreferredSize(new Dimension(300, 120));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(true);
 		this.setVisible(true);
