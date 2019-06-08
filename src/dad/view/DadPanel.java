@@ -88,7 +88,16 @@ public class DadPanel extends JPanel
 	{
 		String response = responseField.getText();
 		
-		String inbet = response.substring(response.indexOf("I'm")+4);
+		String inbet = "";
+		
+		if(response.contains("I'm"))
+		{
+			inbet = response.substring(response.indexOf("I'm")+4);
+		}
+		else
+		{
+			inbet = response;
+		}
 		
 		String trimmed = inbet.trim();
 		
