@@ -28,7 +28,7 @@ public class DadPanel extends JPanel
 		responseField = new JTextField("How do you Feel?");
 		makeJoke = new JButton("Create the joke");
 		
-		grids = new JPanel(new GridLayout(0,1));
+		grids = new JPanel(new GridLayout(0,3));
 		
 		setupPanel();
 		setupLayout();
