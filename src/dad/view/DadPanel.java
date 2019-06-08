@@ -16,19 +16,27 @@ public class DadPanel extends JPanel
 	private JTextField responseField;
 	private JButton makeJoke;
 	
-	private JPanel grids;
-	
 	public DadPanel(DadController app)
 	{
 		super();
 		
+		appLayout = new SpringLayout();
+		
 		this.app = app;
 		
 		dadLab = new JLabel("I'm an Dead");
+		dadLab.setBackground(Color.WHITE);
+		appLayout.putConstraint(SpringLayout.WEST, dadLab, 10, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, dadLab, 281, SpringLayout.WEST, this);
 		responseField = new JTextField("How do you Feel?");
+		appLayout.putConstraint(SpringLayout.NORTH, dadLab, 48, SpringLayout.SOUTH, responseField);
+		appLayout.putConstraint(SpringLayout.SOUTH, dadLab, 95, SpringLayout.SOUTH, responseField);
+		appLayout.putConstraint(SpringLayout.NORTH, responseField, 10, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, responseField, 10, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, responseField, -10, SpringLayout.EAST, this);
 		makeJoke = new JButton("Create the joke");
-		
-		grids = new JPanel(new GridLayout(0,3));
+		appLayout.putConstraint(SpringLayout.WEST, makeJoke, 10, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, makeJoke, -10, SpringLayout.SOUTH, this);
 		
 		setupPanel();
 		setupLayout();
@@ -39,24 +47,26 @@ public class DadPanel extends JPanel
 	{
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(400, 200));
-		this.add(grids);
-		grids.add(responseField);
-		grids.add(dadLab);
-		grids.add(makeJoke);
+		this.setBackground(Color.BLUE);
+		this.add(responseField);
+		this.add(dadLab);
+		this.add(makeJoke);
 	}
 	
 	private void setupLayout()
 	{
-		
+		dadLab.setOpaque(true);
 	}
 	
 	private void makeJoke()
 	{
 		String response = responseField.getText();
 		
-		String inbet = response.substring(response.indexOf("I'm")+1);
+		String inbet = response.substring(response.indexOf("I'm")+4);
 		
-		String out = "Hi " + inbet + ", I'm dad!";
+		String trimmed = inbet.trim();
+		
+		String out = "Hi " + trimmed + ", I'm dad!";
 		
 		dadLab.setText(out); 
 	}

@@ -27,7 +27,7 @@ public class DadFrame extends JFrame
 		this.setTitle("I'm a Dad");
 		this.setPreferredSize(new Dimension(400, 200));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false);
+		this.setResizable(true);
 		this.setVisible(true);
 	}
 }
